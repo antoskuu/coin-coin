@@ -1,44 +1,32 @@
+//Importing necessary modules and models
 require('dotenv').config({path: './.env'});
-const cors = require('cors');
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
 
-// Utilisez express.json() pour parser les corps des requêtes JSON
-app.use(express.json());
-app.use(cors());
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const Authroute = require("./routes/authRoutes")
+
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
+})
+    .then(() => console.log("Database connected successfully"))
+    .catch((err) => console.log("Database connection failed", err));
+    const port = 8000;
+app.listen(port, () => {
+    console.log(`App is running at ${port}`);
 });
-
-const userSchema = new mongoose.Schema({
-    email: String,
-    name: String,
-    password: String
-});
-
-const User = mongoose.model('User', userSchema);
-
-
-app.get('/', (req, res) => {
-    User.find({})
-        .then(found => res.send(found))
-        .catch(err => {
-            console.log("Error occurred, " + err);
-            res.send("Some error occurred!");
-        });
-});
-
-// Route POST pour ajouter un utilisateur
-app.post('/', (req, res) => {
-    const newUser = new User(req.body);
-    newUser.save()
-        .then(() => res.status(201).send("User added successfully"))
-        .catch(err => res.status(400).send(err));
-});
-
-app.listen(3333, () => {
-  console.log('Server is running on port 3333');
-});
+// Middleware Configuration
+// Body-parser to parse incoming request bodies as JSON
+app.use(bodyParser.json());
+// Cookie-parser for handling cookies
+app.use(cookieParser());
+// CORS for enabling Cross-Origin Resource Sharing
+app.use(cors());
+// Routing
+// Mounting authentication-related routes under the '/api' endpoint
+app.use("/api", Authroute);

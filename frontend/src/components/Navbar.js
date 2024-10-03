@@ -6,6 +6,13 @@ const Navbar = () => {
     <nav>
       <Link to="/home">Home</Link>
       <Link to="/autre">Autre</Link>
+      <Link to="/signup">Sign Up</Link>
+      <Link to="/login">Sign In</Link>
+      <Link to="/">My profile</Link>
+
+
+
+
 
     </nav>
   );
