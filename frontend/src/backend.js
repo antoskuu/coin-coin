@@ -4,6 +4,8 @@ import axios from 'axios';
 
 //SIGNIN
 export const signin = user => {
+    window.dispatchEvent(new Event('authChange'));
+
     // API call to sign in a user
     return axios.post("http://localhost:8000/api/signin", JSON.stringify(user), {
         headers: {
@@ -17,10 +19,13 @@ export const signin = user => {
     .catch(err => {
         return err.response.data; // Return error response data
     })
+
 }
 
 //SIGNUP
 export const signup = user => {
+    window.dispatchEvent(new Event('authChange'));
+
     // API call to sign up a user
     return axios.post("http://localhost:8000/api/signup", JSON.stringify(user),{
         headers: {
@@ -35,6 +40,7 @@ export const signup = user => {
     .catch(err => {
         return err.response.data; // Return error response data
     })
+
 }
 
 //SETTING THE JWT TOKEN IN USER'S BROWSER
@@ -48,6 +54,8 @@ export const authenticate = (data, next) => {
 
 //SIGNOUT -> REMOVING JWT TOKEN
 export const signout = (next) => {
+    window.dispatchEvent(new Event('authChange'));
+
     // Removing JWT token upon signout
     if (typeof window !== "undefined") {
         localStorage.removeItem("jwt");
@@ -59,6 +67,7 @@ export const signout = (next) => {
         })
         .catch(err => console.log(err));
     }
+
 };
 
 //VALIDATION IF USER IS SIGNED IN
@@ -72,3 +81,20 @@ export const isAuthenticated = () => {
     else
         return false
 }
+
+
+// Fonction de connexion
+export const login = (user) => {
+    // Logique de connexion
+    localStorage.setItem("jwt", JSON.stringify(user));
+    // Émettre l'événement authChange
+    window.dispatchEvent(new Event('authChange'));
+};
+
+// Fonction de déconnexion
+export const logout = () => {
+    // Logique de déconnexion
+    localStorage.removeItem("jwt");
+    // Émettre l'événement authChange
+    window.dispatchEvent(new Event('authChange'));
+};
