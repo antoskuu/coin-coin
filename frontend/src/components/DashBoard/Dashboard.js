@@ -14,7 +14,14 @@ const Dashboard = () => {
     };
 
     return (
-        !authenticatedUser ? <h1>Please sign in</h1> :
+        !authenticatedUser ? (
+            <div>
+        <h1>Please sign in</h1>
+        <button onClick={() => navigate('/login')}>Sign In</button>
+        <button onClick={() => navigate('/signup')}>Sign Up</button>
+
+        </div>
+        ) :
             <div className='dashboard'>
                 <button onClick={onSignout}>Sign Out</button>
                 <h1>Hello, {authenticatedUser.user.name}</h1> {/* Display user's name */}

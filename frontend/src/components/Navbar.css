@@ -1,0 +1,30 @@
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    background: rgba(255, 255, 255, 0.2); /* Couleur de fond semi-transparente */
+    backdrop-filter: blur(10px); /* Effet de flou pour un effet glossy */
+    -webkit-backdrop-filter: blur(10px); /* Support pour Safari */
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+}
+
+
+
+nav a {
+    
+    margin: 0 5%;
+}
+
+nav a:active {
+    outline: none;
+}
+
+
+.nav-logo {
+    height: 80%; /* Ajustez la taille des logos selon vos besoins */
+    vertical-align: middle;
+}
