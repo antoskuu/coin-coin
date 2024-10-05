@@ -3,7 +3,7 @@ import React from 'react';
 
 const Regles = () => {
   return (
-    <div>
+    <div className="regles">
   <h1>Règles officielles du coin-coin</h1>
     <h2>1. Matériel</h2>
     <p>Pour jouer au coin-coin, il vous faut :<br />

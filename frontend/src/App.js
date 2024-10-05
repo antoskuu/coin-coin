@@ -9,7 +9,7 @@ import Regles from './pages/Regles.js';
 
 const App = () => {
   return (
-    <div>
+    <div className='smooth'>
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Signin />} />

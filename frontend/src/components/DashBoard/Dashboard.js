@@ -10,7 +10,7 @@ const Dashboard = () => {
     const onSignout = () => {
         signout(); // Perform signout action
         console.log("Signed out");
-        navigate('/signin'); // Redirect to login page after sign out
+        navigate('/'); // Redirect to login page after sign out
     };
 
     return (

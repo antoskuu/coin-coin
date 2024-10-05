@@ -1,0 +1,14 @@
+/* Styles pour inverser l'orientation du dernier bracket */
+.bracket-container:last-child .round {
+    display: flex;
+    flex-direction: row-reverse; /* Inverser la direction des rounds */
+}
+
+.bracket-container:last-child .seed {
+    display: flex;
+    flex-direction: row-reverse; /* Inverser la direction des seeds */
+}
+
+.bracket-container:last-child .connector {
+    transform: rotate(180deg); /* Inverser l'orientation des connecteurs */
+}

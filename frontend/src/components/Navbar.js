@@ -4,6 +4,7 @@ import './Navbar.css';
 import homeLogo from '../assets/home.png';
 import rulesLogo from '../assets/rules.png';
 import profileLogo from '../assets/profile.png';
+import tournamentLogo from '../assets/tournament.png';
 
 
 
@@ -15,7 +16,12 @@ const Navbar = () => {
     
     <nav>
       <Link to="/home">
-      <img src={homeLogo} alt="Home" className="nav-logo"/></Link>
+      <img src={homeLogo} alt="Home" className="nav-logo"/>
+      </Link>
+      <Link to="/home">
+      <img src={tournamentLogo} alt="Home" className="nav-logo"/>
+      </Link>
+
       <Link to="/regles"><img src={rulesLogo} alt="Rules" className="nav-logo"/></Link>
       <Link to="/"><img src={profileLogo} alt="Profile" className="nav-logo"/></Link>
 
