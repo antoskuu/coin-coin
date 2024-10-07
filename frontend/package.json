@@ -1,6 +1,6 @@
 {
   "homepage": "https://coin-coin.me/coin-coin/",
-  "name": "reacthost",
+  "name": "coin-coin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
