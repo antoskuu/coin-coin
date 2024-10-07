@@ -38,7 +38,7 @@ const Autre = () => {
 
   const handleSubmit = () => {
     // Envoyer les données à l'API
-    fetch('https://13.48.148.226:3000', { // Remplacez '/api/endpoint' par votre point de terminaison spécifique
+    fetch('https://13.48.148.226:3000/api/endpoint', { // Remplacez '/api/endpoint' par votre point de terminaison spécifique
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
