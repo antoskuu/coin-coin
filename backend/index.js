@@ -16,8 +16,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
     .then(() => console.log("Database connected successfully"))
     .catch((err) => console.log("Database connection failed", err));
-    const port = 8000;
-app.listen(port, () => {
+    const port = 3000;
+app.listen(port, '0.0.0.0', () => {
     console.log(`App is running at ${port}`);
 });
 // Middleware Configuration
